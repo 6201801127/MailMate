@@ -15,7 +15,7 @@ def send_email(recipient, body):
         message['From'] = sender_email
         message['To'] = recipient
         message['Subject'] = "Response To your Email"
-        message.attache(MIMEText(body, "plain"))
+        message.attach(MIMEText(body, "plain"))
 
         server = smtplib.SMTP(smtp_server, smtp_port)
         server.starttls()
