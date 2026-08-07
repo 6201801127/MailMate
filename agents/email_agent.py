@@ -1,6 +1,7 @@
 import streamlit as st
 # import openai
-from google import genai
+# from google import genai
+import google.generativeai as genai
 
 
 client = genai.Client(api_key=st.secrets["OPENAI_API_KEY"])
