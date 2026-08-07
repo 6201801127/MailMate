@@ -1,8 +1,9 @@
 import streamlit as st
 import openai
+from google import genai
 
 
-client = openai.OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+client = genai.Client(api_key=st.secrets["OPENAI_API_KEY"])
 
 def generate_email_response(email_text, tone):
     prompt = f"""
