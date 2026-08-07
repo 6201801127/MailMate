@@ -1,5 +1,5 @@
 import streamlit as st
-# import openai
+import openai
 # from google import genai
 import google.generativeai as genai
 
@@ -21,8 +21,14 @@ Reply:
     #     messages=[{"role": "user", "content": prompt}] 
     # )
     # return response.choices[0].message.content
-    response = client.models.generate_content(
-        model="gemini-2.5-flash",
-        contents=prompt,
-    )
+    # response = client.models.generate_content(
+    #     model="gemini-2.5-flash",
+    #     contents=prompt,
+    # )
+    # return response.text
+    genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+
+    model = genai.GenerativeModel("gemini-2.5-flash")
+    response = model.generate_content(prompt)
+
     return response.text
