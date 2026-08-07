@@ -14,7 +14,7 @@ email:
 Reply:
 """
     response = client.chat.completions.create(
-        model = "gemini-2.5-flash,
+        model = "gemini-2.5-flash",
         messages=[{"role": "user", "content": prompt}] 
     )
     return response.choices[0].message.content
