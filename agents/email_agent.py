@@ -1,13 +1,13 @@
 import streamlit as st
 import openai
-from google import genai
-# import google.generativeai as genai
+# from google import genai
+import google.generativeai as genai
 
 
 client = genai.Client(api_key=st.secrets["OPENAI_API_KEY"])
 # client = openai.OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
-for model in client.models.list():
-    print("model name ---------------", model.name)
+# for model in client.models.list():
+#     print("model name ---------------", model.name)
 
 def generate_email_response(email_text, tone):
     prompt = f"""
@@ -24,7 +24,7 @@ Reply:
     # )
     # return response.choices[0].message.content
     response = client.models.generate_content(
-        model="gemini-2.5-flash",
+        model="gemini-flash-lite-latest",
         contents=prompt,
     )
     return response.text
